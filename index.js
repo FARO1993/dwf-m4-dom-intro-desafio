@@ -25,6 +25,17 @@ const cosasQueAprendimos = [
   },
 ];
 
-function main() {}
+//Función para eliminar elemento HTML.
+function remove(item) {
+  let elem = document.querySelectorAll(item);
+  for (var i = 0; i < elem.length; i++) {
+    var del = elem[i];
+    del.parentNode.removeChild(del);
+  }
+}
+
+function main() {
+  const erase = remove("li");
+}
 
 main();
