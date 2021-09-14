@@ -25,17 +25,26 @@ const cosasQueAprendimos = [
   },
 ];
 
-//Función para eliminar elemento HTML.
-function remove(item) {
-  let elem = document.querySelectorAll(item);
-  for (var i = 0; i < elem.length; i++) {
-    var del = elem[i];
-    del.parentNode.removeChild(del);
+//Función para eliminar elemento.
+function removeItem(item) {
+  const itemEl = document.querySelectorAll(item);
+
+  for (let el of itemEl) {
+    el.remove();
   }
 }
 
 function main() {
-  const erase = remove("li");
+  removeItem(".lista li");
+  const listaUl = document.querySelector(".lista ");
+
+  //Ciclo for of
+  for (let item of cosasQueAprendimos) {
+    const newLiElement = document.createElement("li");
+    newLiElement.textContent = item.tema;
+    newLiElement.classList.add(item.class || "item"); //Clase que le asigno al "li"
+    listaUl.appendChild(newLiElement);
+  }
 }
 
 main();
